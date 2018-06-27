@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="android.discovery.mvvmdemo.MainActivity">
+
+
+    <data class = "MainUserBinding">
+        <import type="android.discovery.mvvmdemo.UserInfo" />
+        <variable name="userInfo" type="UserInfo" />
+
+        <import type="android.discovery.mvvmdemo.MainActivity.Event"/>
+        <variable name="event" type="Event"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:textSize="24dp"
+            android:text="点击事件"
+            android:onClick="@{event::onEvent}"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:text="@{userInfo.name}"
+            android:textSize="34dp" />
+
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:text="@{String.valueOf(userInfo.age)}"
+            android:textSize="34dp" />
+    </LinearLayout>
+</layout>
